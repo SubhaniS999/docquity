@@ -1,0 +1,247 @@
+/* webinars-you-may-like.component.scss */
+.webinars-you-may-like {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+
+  h2 {
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  // Layout: Sidebar + Content Grid
+  .webinars-layout {
+    display: flex;
+    gap: 32px;
+  }
+
+  // Sidebar styles
+  .filters-sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+
+    .filter-section {
+      margin-bottom: 16px;
+
+      .filter-header {
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #ccc;
+        font-size: 14px;
+      }
+
+      .filter-options {
+        margin-top: 8px;
+        padding-left: 4px;
+
+        label {
+          display: flex;
+          align-items: center;
+          margin-bottom: 6px;
+          font-size: 13px;
+          color: #333;
+          cursor: pointer;
+
+          input[type='checkbox'] {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  // Webinar cards grid
+  .webinars-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .webinar-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+
+      .sponsor {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .follow-btn {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        border-radius: 12px;
+        padding: 6px 12px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 13px;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+
+      .followers {
+        font-size: 12px;
+        color: #666;
+        margin-top: 4px;
+      }
+    }
+
+    .card-image {
+      position: relative;
+      margin: 16px 0;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .live-label {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background-color: #e53935;
+        color: white;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+
+      .credits-label {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        background-color: #ffca28;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 13px;
+        color: #333;
+
+        .expiring {
+          color: #d32f2f;
+          font-weight: 600;
+          margin-left: 4px;
+        }
+      }
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .highlights {
+      background: #fff2e7;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #8a6d3b;
+      margin-bottom: 12px;
+    }
+
+    .social-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #666;
+        font-size: 14px;
+        font-weight: 600;
+
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+
+    .views {
+      font-size: 12px;
+      color: #999;
+      text-align: right;
+    }
+    &:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px); // subtle lift on hover
+    }
+
+  }
+}
+.webinars-layout {
+  display: flex;
+  gap: 32px;
+}
+
+.filters-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.webinar-subheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+
+  .section-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 16px;
+
+    button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 20px;
+      color: #666;
+      transition: background-color 0.2s ease;
+
+      &.active {
+        background-color: #007bff;
+        color: white;
+      }
+
+      &:hover:not(.active) {
+        background-color: #eee;
+      }
+    }
+  }
+}
