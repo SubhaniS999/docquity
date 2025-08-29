@@ -1,0 +1,25 @@
+<section class="webinar-section">
+  <div class="section-header">
+    <h2>Live webinars</h2>
+    <button class="view-all-btn">View all</button>
+  </div>
+
+  <div class="webinar-cards">
+    <div class="webinar-card" *ngFor="let webinar of liveWebinars">
+      <div class="thumbnail">
+        <img [src]="webinar.image" alt="Webinar thumbnail" />
+        <span class="live-tag">🔴 Live</span>
+        <span class="viewers">👁 {{ webinar.viewers }}</span>
+        <span class="duration">{{ webinar.duration }}</span>
+      </div>
+      <div class="card-body">
+        <span class="credits">{{ webinar.credits }}</span>
+        <h3 class="title">{{ webinar.title }}</h3>
+        <p class="by">{{ webinar.by }}</p>
+        <p class="highlights">KEY HIGHLIGHTS</p>
+        <p class="topic">{{ webinar.topic }}</p>
+        <button class="watch-now">Watch now</button>
+      </div>
+    </div>
+  </div>
+</section>

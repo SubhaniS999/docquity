@@ -1,0 +1,100 @@
+<section class="webinar-section">
+  <div class="section-header">
+    <h2>Upcoming webinars</h2>
+    <button class="view-all-btn">View all</button>
+  </div>
+
+  <div class="webinar-cards">
+    <div class="webinar-card" *ngFor="let webinar of upcomingWebinars">
+      <div class="thumbnail">
+        <img [src]="webinar.image" alt="Webinar thumbnail" />
+        <span class="tag">{{ webinar.credits }}</span>
+      </div>
+      <div class="card-body">
+        <h3 class="title">{{ webinar.title }}</h3>
+        <p class="by">{{ webinar.by }}</p>
+        <p class="highlights">KEY HIGHLIGHTS</p>
+        <p class="topic">{{ webinar.topic }}</p>
+        <div class="footer">
+          <span class="date">Goes live on <strong>{{ webinar.date }}</strong></span>
+          <button class="notify-btn">🔔 Notify me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="webinar-section">
+  <div class="section-header">
+    <h2>Continue watching</h2>
+    <button class="view-all-btn">View all</button>
+  </div>
+
+  <div class="webinar-cards">
+    <div class="webinar-card" *ngFor="let webinar of continueWatching">
+      <div class="thumbnail">
+        <img [src]="webinar.image" alt="Webinar thumbnail" />
+        <span class="duration">{{ webinar.duration }}</span>
+      </div>
+      <div class="card-body">
+        <h3 class="title">{{ webinar.title }}</h3>
+        <p class="by">{{ webinar.by }}</p>
+        <p class="progress">{{ webinar.progress }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="webinar-section">
+  <div class="section-header">
+    <h2>{{ categoryTitle }}</h2>
+    <button class="view-all-btn">View all</button>
+  </div>
+
+  <div class="webinar-cards">
+    <div class="webinar-card" *ngFor="let webinar of webinars">
+      <div class="thumbnail">
+        <img [src]="webinar.image" alt="Webinar image" />
+        <span class="duration">{{ webinar.duration }}</span>
+      </div>
+      <div class="card-body">
+        <h3 class="title">{{ webinar.title }}</h3>
+        <p class="by">{{ webinar.by }}</p>
+        <p class="credits">{{ webinar.credits }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="speaker-section">
+  <div class="section-header">
+    <h2>Top speakers</h2>
+    <button class="view-all-btn">View all</button>
+  </div>
+
+  <div class="speaker-carousel">
+    <div class="speaker-card" *ngFor="let speaker of speakers">
+      <img [src]="speaker.image" alt="Speaker image" class="profile-img" />
+      <h3 class="name">{{ speaker.name }}</h3>
+      <p class="designation">{{ speaker.designation }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="browse-topic-section">
+  <h2>Browse by topic</h2>
+  <div class="topic-chips">
+    <button
+      *ngFor="let topic of topics"
+      (click)="selectTopic(topic)"
+      [class.selected]="topic === selectedTopic"
+      class="chip"
+    >
+      {{ topic }}
+    </button>
+  </div>
+</section>
+
+

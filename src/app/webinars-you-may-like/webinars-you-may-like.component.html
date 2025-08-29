@@ -1,0 +1,66 @@
+<!-- webinars-you-may-like.component.html -->
+<div class="webinars-you-may-like">
+  <h2>Webinars you may like</h2>
+
+  <div class="webinars-layout">
+    <!-- 📌 FILTER SIDEBAR -->
+    <div class="filters-sidebar">
+      <div class="filter-section" *ngFor="let filter of filters; let i = index">
+        <div class="filter-header" (click)="toggleSection(i)">
+          <h4>{{ filter.title }}</h4>
+          <span>{{ filter.expanded ? '▲' : '▼' }}</span>
+        </div>
+        <div class="filter-options" *ngIf="filter.expanded">
+          <div class="checkbox" *ngFor="let option of filter.options">
+            <label>
+              <input
+                type="checkbox"
+                [checked]="isChecked(i, option)"
+                (change)="toggleOption(i, option)"
+              />
+              {{ option }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🎥 WEBINAR CARDS -->
+    <div class="webinars-grid">
+      <div class="webinar-card" *ngFor="let webinar of filteredWebinars">
+        <div class="card-header">
+          <span class="sponsor">{{ webinar.sponsor }}</span>
+          <button class="follow-btn" (click)="follow(webinar.sponsor)">+ Follow</button>
+          <div class="followers">
+            {{ webinar.followers }} followers • {{ webinar.timeAgo }}
+          </div>
+        </div>
+
+        <div class="card-image">
+          <img [src]="webinar.imageUrl" [alt]="webinar.title" />
+          <div *ngIf="webinar.isLive" class="live-label">Live</div>
+          <div class="credits-label">
+            {{ webinar.credits }}
+            <span *ngIf="webinar.expiringIn" class="expiring">
+              ({{ webinar.expiringIn }})
+            </span>
+          </div>
+        </div>
+
+        <h3 class="title">{{ webinar.title }}</h3>
+        <p class="highlights">{{ webinar.highlights }}</p>
+
+        <div class="social-actions">
+          <button (click)="like(webinar)">👍 {{ webinar.likes }}</button>
+          <button (click)="comment(webinar)">💬 {{ webinar.comments }}</button>
+          <button (click)="repost(webinar)">🔁 Repost</button>
+          <button (click)="share(webinar)">🔗 Share</button>
+        </div>
+
+        <div class="views">{{ webinar.views }} Views</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Navigation / Section under title -->
+

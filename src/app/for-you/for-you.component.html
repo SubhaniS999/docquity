@@ -1,0 +1,194 @@
+<div class="webinar-subheader">
+  <div class="section-title">Webinar</div>
+  <div class="tabs">
+    <button
+      [class.active]="activeTab === 'forYou'"
+      (click)="activeTab = 'forYou'"
+    >
+      For You
+    </button>
+    <button
+      [class.active]="activeTab === 'live'"
+      (click)="activeTab = 'live'"
+    >
+      Live
+    </button>
+    <button
+      [class.active]="activeTab === 'upcoming'"
+      (click)="activeTab = 'upcoming'"
+    >
+      Upcoming
+    </button>
+  </div>
+</div>
+
+<!-- Only show "For You" section when the active tab is forYou -->
+<div class="for-you-container" *ngIf="activeTab === 'forYou'">
+  <h2>For You</h2>
+  <div class="cards-wrapper">
+    <div class="card" *ngFor="let post of posts">
+      <div class="header">
+        <div class="profile-pic">
+          <img [src]="post.image" alt="Profile" />
+        </div>
+        <div class="profile-info">
+          <div class="profile-name">{{ post.profileName }}</div>
+          <div class="sponsored">Sponsored by {{ post.sponsoredBy }}</div>
+          <div class="followers">{{ post.followers }} followers • {{ post.timeAgo }}</div>
+        </div>
+        <div class="actions">
+          <button class="add-btn">+</button>
+          <button class="menu-btn">&#8942;</button>
+        </div>
+      </div>
+
+      <div class="live-info">
+        <span class="live-badge">LIVE</span>
+        <span class="viewers">{{ post.liveViewers }}+</span>
+      </div>
+
+      <div class="image-container">
+        <img [src]="post.image" alt="Live session" />
+        <span class="duration">{{ post.duration }}</span>
+      </div>
+
+      <div class="credits">
+        <span class="star">&#9733;</span>
+        <strong>{{ post.credits }} Credits</strong>
+        <span class="expiring">(Expiring in {{ post.expiring }})</span>
+      </div>
+
+      <h3 class="title">{{ post.title }}</h3>
+
+      <div class="highlights">
+        <div class="highlight-label">KEY HIGHLIGHTS</div>
+        <div class="highlight-text">{{ post.highlights }}</div>
+      </div>
+
+      <div class="social-actions">
+        <button><span class="icon">&#128077;</span> Like</button>
+        <button><span class="icon">&#128172;</span> Comment</button>
+        <button><span class="icon">&#10227;</span> Repost</button>
+        <button><span class="icon">&#10150;</span> Share</button>
+      </div>
+
+      <div class="stats">
+        <span>{{ post.likes }} Likes • {{ post.comments }} Comments</span>
+        <span>{{ post.views }} Views</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="for-you-container" *ngIf="activeTab === 'live'">
+  <h2>Live</h2>
+  <div class="cards-wrapper">
+    <div class="card" *ngFor="let post of liveWebinars">
+      <div class="header">
+        <div class="profile-pic">
+          <img [src]="post.image" alt="Profile" />
+        </div>
+        <div class="profile-info">
+          <div class="profile-name">{{ post.profileName }}</div>
+          <div class="sponsored">Sponsored by {{ post.sponsoredBy }}</div>
+          <div class="followers">{{ post.followers }} followers • {{ post.timeAgo }}</div>
+        </div>
+        <div class="actions">
+          <button class="add-btn">+</button>
+          <button class="menu-btn">&#8942;</button>
+        </div>
+      </div>
+
+      <div class="live-info">
+        <span class="live-badge">LIVE</span>
+        <span class="viewers">{{ post.liveViewers }}+</span>
+      </div>
+
+      <div class="image-container">
+        <img [src]="post.image" alt="Live session" />
+        <span class="duration">{{ post.duration }}</span>
+      </div>
+
+      <div class="credits">
+        <span class="star">&#9733;</span>
+        <strong>{{ post.credits }} Credits</strong>
+        <span class="expiring">(Expiring in {{ post.expiring }})</span>
+      </div>
+
+      <h3 class="title">{{ post.title }}</h3>
+
+      <div class="highlights">
+        <div class="highlight-label">KEY HIGHLIGHTS</div>
+        <div class="highlight-text">{{ post.highlights }}</div>
+      </div>
+
+      <div class="social-actions">
+        <button><span class="icon">&#128077;</span> Like</button>
+        <button><span class="icon">&#128172;</span> Comment</button>
+        <button><span class="icon">&#10227;</span> Repost</button>
+        <button><span class="icon">&#10150;</span> Share</button>
+      </div>
+
+      <div class="stats">
+        <span>{{ post.likes }} Likes • {{ post.comments }} Comments</span>
+        <span>{{ post.views }} Views</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="for-you-container" *ngIf="activeTab === 'upcoming'">
+  <h2>Upcoming</h2>
+  <div class="cards-wrapper">
+    <div class="card" *ngFor="let post of upcomingWebinars">
+      <div class="header">
+        <div class="profile-pic">
+          <img [src]="post.image" alt="Profile" />
+        </div>
+        <div class="profile-info">
+          <div class="profile-name">{{ post.profileName }}</div>
+          <div class="sponsored">Sponsored by {{ post.sponsoredBy }}</div>
+          <div class="followers">{{ post.followers }} followers • {{ post.timeAgo }}</div>
+        </div>
+        <div class="actions">
+          <button class="add-btn">+</button>
+          <button class="menu-btn">&#8942;</button>
+        </div>
+      </div>
+
+      <div class="live-info">
+        <span class="live-badge">LIVE</span>
+        <span class="viewers">{{ post.liveViewers }}+</span>
+      </div>
+
+      <div class="image-container">
+        <img [src]="post.image" alt="Live session" />
+        <span class="duration">{{ post.duration }}</span>
+      </div>
+
+      <div class="credits">
+        <span class="star">&#9733;</span>
+        <strong>{{ post.credits }} Credits</strong>
+        <span class="expiring">(Expiring in {{ post.expiring }})</span>
+      </div>
+
+      <h3 class="title">{{ post.title }}</h3>
+
+      <div class="highlights">
+        <div class="highlight-label">KEY HIGHLIGHTS</div>
+        <div class="highlight-text">{{ post.highlights }}</div>
+      </div>
+
+      <div class="social-actions">
+        <button><span class="icon">&#128077;</span> Like</button>
+        <button><span class="icon">&#128172;</span> Comment</button>
+        <button><span class="icon">&#10227;</span> Repost</button>
+        <button><span class="icon">&#10150;</span> Share</button>
+      </div>
+
+      <div class="stats">
+        <span>{{ post.likes }} Likes • {{ post.comments }} Comments</span>
+        <span>{{ post.views }} Views</span>
+      </div>
+    </div>
+  </div>
+</div>
+
